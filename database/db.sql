@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.data_rows: ~36 rows (aproximadamente)
+DELETE FROM `data_rows`;
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
 	(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
@@ -95,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.data_types: ~5 rows (aproximadamente)
+DELETE FROM `data_types`;
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
 	(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', '', '', 1, 0, NULL, '2018-12-09 14:24:39', '2018-12-09 14:24:39'),
@@ -115,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.menus: ~1 rows (aproximadamente)
+DELETE FROM `menus`;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2018-12-09 14:24:39', '2018-12-09 14:24:39');
@@ -141,6 +144,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.menu_items: ~13 rows (aproximadamente)
+DELETE FROM `menu_items`;
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 	(1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2018-12-09 14:24:39', '2018-12-09 14:24:39', 'voyager.dashboard', NULL),
@@ -167,6 +171,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.migrations: ~22 rows (aproximadamente)
+DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -193,6 +198,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(22, '2018_03_16_000000_make_settings_value_nullable', 1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
+-- Volcando estructura para tabla propiedades.monedas
+CREATE TABLE IF NOT EXISTS `monedas` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` tinytext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `valor` double DEFAULT NULL,
+  `imagen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla propiedades.monedas: ~2 rows (aproximadamente)
+DELETE FROM `monedas`;
+/*!40000 ALTER TABLE `monedas` DISABLE KEYS */;
+INSERT INTO `monedas` (`id`, `nombre`, `valor`, `imagen`, `created_at`, `updated_at`) VALUES
+	(1, 'ARS', 1, 'monedas\\December2018\\g2FhqDfAdSADmF0qXj13.png', '2018-12-09 17:43:30', '2018-12-09 17:43:30'),
+	(2, 'USD', 37, 'monedas\\December2018\\ZoXbDPxlLAYa1RF9zvvJ.png', '2018-12-09 17:43:43', '2018-12-09 17:43:43');
+/*!40000 ALTER TABLE `monedas` ENABLE KEYS */;
+
 -- Volcando estructura para tabla propiedades.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -202,6 +226,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.password_resets: ~0 rows (aproximadamente)
+DELETE FROM `password_resets`;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
@@ -217,6 +242,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.permissions: ~36 rows (aproximadamente)
+DELETE FROM `permissions`;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
 	(1, 'browse_admin', NULL, '2018-12-09 14:24:39', '2018-12-09 14:24:39'),
@@ -269,6 +295,7 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.permission_role: ~36 rows (aproximadamente)
+DELETE FROM `permission_role`;
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(1, 1),
@@ -322,6 +349,7 @@ CREATE TABLE IF NOT EXISTS `propiedads` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.propiedads: ~1 rows (aproximadamente)
+DELETE FROM `propiedads`;
 /*!40000 ALTER TABLE `propiedads` DISABLE KEYS */;
 INSERT INTO `propiedads` (`id`, `titulo`, `imagenes`, `precio`, `moneda_id`, `created_at`, `updated_at`) VALUES
 	(1, 'casa', '["propiedads\\\\December2018\\\\bv7PSybJBZV9TCYIBkYp.JPG","propiedads\\\\December2018\\\\eE5QM2qzeShcVxck1l2N.JPG"]', 12, 1, '2018-12-09 14:30:00', '2018-12-09 17:44:57');
@@ -339,6 +367,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.roles: ~2 rows (aproximadamente)
+DELETE FROM `roles`;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', 'Administrator', '2018-12-09 14:24:39', '2018-12-09 14:24:39'),
@@ -360,6 +389,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.settings: ~10 rows (aproximadamente)
+DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
 	(1, 'site.title', 'Site Title', 'Site Title', '', 'text', 1, 'Site'),
@@ -389,6 +419,7 @@ CREATE TABLE IF NOT EXISTS `translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.translations: ~0 rows (aproximadamente)
+DELETE FROM `translations`;
 /*!40000 ALTER TABLE `translations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `translations` ENABLE KEYS */;
 
@@ -412,6 +443,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.users: ~1 rows (aproximadamente)
+DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'admin', 'admin@speednova.com', 'users/default.png', NULL, '$2y$10$SUTMUZOgnmDtXEkcvq.qiO5QKfzxrutXscsnm3nPBrW/7ugy3Cm5G', NULL, NULL, '2018-12-09 14:25:45', '2018-12-09 14:25:45');
@@ -429,6 +461,7 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando datos para la tabla propiedades.user_roles: ~0 rows (aproximadamente)
+DELETE FROM `user_roles`;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 
