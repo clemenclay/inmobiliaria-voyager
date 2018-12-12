@@ -63,12 +63,14 @@
             }
         </style>
     </head>
-    <body>
+    <body>{{ setting('site.title') }}
+
+        <img src="{{ setting('site.logo') }}" />
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Homes</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
